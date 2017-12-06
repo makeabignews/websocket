@@ -1,0 +1,17 @@
+<script type="text/javascript">
+var getmsg=function(){
+if ("WebSocket" in window){
+    var ws=new WebSocket("ws://192.168.2.36:3000");
+    ws.onmessage=function(evt){
+        var received_msg=evt.data;
+        msg.innerHTML=received_msg;
+    }
+}else{
+        msg.innerHTML="error!"
+}
+}
+setInterval(function(){
+    getmsg();
+},1000);
+</script>
+<h2 id="msg"></h2>
